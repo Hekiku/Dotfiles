@@ -241,31 +241,52 @@ screens = [
                        background = colors[0],
                        padding = 5
                        ),
+              #widget.Sep(
+              #         linewidth = 0,
+              #         padding = 6,
+              #         foreground = colors[0],
+              #         background = colors[0]
+              #         ),
+              #widget.CheckUpdates(
+              #         update_interval = 1800,
+              #         custom_command="apt list --upgradable",
+              #         display_format = "Updates: {updates} ",
+              #         no_update_string = 'No updates',
+              #         mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('alacritty -e apt list --upgradable')},
+              #         foreground = colors[5],
+              #         colour_have_updates = colors[5],
+              #         colour_no_updates = colors[5],
+              #         padding = 5,
+              #         background = colors[0],
+              #         decorations=[
+              #             BorderDecoration(
+              #                 colour = colors[5],
+              #                 border_width = [0, 0, 2, 0],
+              #                 padding_x = 5,
+              #                 padding_y = None,
+              #             )
+              #         ],
+              #         ),
               widget.Sep(
                        linewidth = 0,
                        padding = 6,
                        foreground = colors[0],
                        background = colors[0]
                        ),
-              widget.CheckUpdates(
-                       update_interval = 1800,
-                       custom_command="apt list --upgradable",
-                       display_format = "Updates: {updates} ",
-                       no_update_string = 'No updates',
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('alacritty -e apt list --upgradable')},
-                       foreground = colors[5],
-                       colour_have_updates = colors[5],
-                       colour_no_updates = colors[5],
-                       padding = 5,
+              widget.Wlan(
+                       foreground = colors[4],
                        background = colors[0],
+                       padding = 5,
                        decorations=[
                            BorderDecoration(
-                               colour = colors[5],
+                               colour = colors[4],
                                border_width = [0, 0, 2, 0],
                                padding_x = 5,
                                padding_y = None,
                            )
                        ],
+                       interface = 'wlp28s0',
+                       format = '{essid} {percent:2.0%}'
                        ),
               widget.Sep(
                        linewidth = 0,
